@@ -51,7 +51,7 @@
                 <div style="text-align:left">
                     <form action="appelli" method="post">
                         <button type="submit" class="btn btn-secondary">Click</button> Leggere gli appelli disponibili <br><br></form>
-                    <form action="ExamChoiceServ" method="post">
+                    <form action="scegliAppello" method="post">
                         <button type="submit" class="btn btn-secondary">Click</button> Fai una prenotazione <br><br></form>
                 </div>    
             </div>

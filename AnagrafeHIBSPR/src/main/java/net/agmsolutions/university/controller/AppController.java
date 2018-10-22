@@ -49,6 +49,14 @@ public class AppController {
         return "LoggedIn";
     }
 
-   
+   @RequestMapping(value = {"/logout"}, method = RequestMethod.POST)
+    public String logout(HttpServletRequest request) {
+        
+        HttpSession session=request.getSession();
+        session.invalidate();
+      
+            return "logout";
+        
+    }
 
 }
