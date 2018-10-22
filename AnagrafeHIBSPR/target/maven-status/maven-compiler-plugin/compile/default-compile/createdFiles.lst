@@ -7,6 +7,7 @@ net\agmsolutions\university\dao\students\StudentsDAO.class
 net\agmsolutions\university\businesslogic\ApproveReservation.class
 net\agmsolutions\university\configuration\AppConfig.class
 net\agmsolutions\university\entity\Appelli.class
+net\agmsolutions\university\controller\ProfessorController.class
 net\agmsolutions\university\entity\Professori.class
 net\agmsolutions\university\businesslogic\LoginProfessor.class
 net\agmsolutions\university\dao\courses\CoursesDAOMethods.class

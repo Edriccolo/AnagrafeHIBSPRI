@@ -26,18 +26,18 @@
                     <div id="ProfLogged" style="display:none">
                     <div id="choiceProf">
                         <div class="col-md-12" style="text-align: left">
-                            <form action="SelectExamToAddServlet" method="post">
+                            <form action="scegliCorso" method="post">
                                 <button type="submit" class="btn btn-secondary" id="AddExamButton">Click</button> Aggiungere un appello <br><br></form>
-                            <form action="DeleteExamServlet" method="post">
+                            <form action="eliminaScelta" method="post">
                                 <button type="submit" class="btn btn-secondary">Click</button> Eliminare un appello <br><br></form>
-                            <form action="ReadReservationServlet" method="post">
+                            <form action="prenotazioni" method="post">
                                 <button type="submit" class="btn btn-secondary">Click</button> Visualizzare la lista delle prenotazioni <br><br></form>
 
                             <button type="button" class="btn btn-secondary" id="ApproveExamButton">Click</button> Segnare un esame passato
                         </div> </div>
 
                     <div id="ApproveExam" style="display:none">
-                        <form action="ApproveExamServlet" method="post">
+                        <form action="cercaStudente" method="post">
                             <label>Inserisci il nome dello studente, con la lettera iniziale maiuscola:</label>
                             <input type="text" id="NomeStud" name="NomeStud"/>
                             <button type="submit" class="btn btn-primary">Invio</button>
