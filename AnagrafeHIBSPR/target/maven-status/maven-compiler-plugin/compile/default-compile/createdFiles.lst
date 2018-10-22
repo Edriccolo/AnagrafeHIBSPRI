@@ -25,6 +25,7 @@ net\agmsolutions\university\dao\students\StudentsDAOinterface.class
 net\agmsolutions\university\dao\reservations\ReservationsDAO.class
 net\agmsolutions\university\dao\courses\CoursesDAO.class
 net\agmsolutions\university\businesslogic\ReadAvailableExams.class
+net\agmsolutions\university\controller\StudentController.class
 net\agmsolutions\university\controller\AppController.class
 net\agmsolutions\university\businesslogic\LoginStudent.class
 net\agmsolutions\university\dao\courses\CoursesDAOInterface.class
