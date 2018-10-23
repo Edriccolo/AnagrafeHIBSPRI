@@ -18,46 +18,47 @@
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js">
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>
-   <body style="background-color:lightgray; text-align:center">
-           <%@ include file = "header.jsp" %>
-       <div class="container">
-                <h1>Ecco la lista delle prenotazioni attualmente online.</h1><br><br>
-                <table class="table table-striped">
+    <body style="background-color:lightgray; text-align:center">
+        <%@ include file = "header.jsp" %><br><br>
+        <div style=" margin: auto; background-color: whitesmoke; border-radius:16px; width: 400px; height: 150px">
+            <h1>Ecco la lista delle prenotazioni attualmente online.</h1></div><br><br>
+        <div class="container">
+            <table class="table table-striped">
                 <thead>
-                <tr>
-                <th>Nome del professore</th>
-                <th>Nome esame</th>
-                <th>Data</th>
-                <th>Nome dello studente</th>
-                </tr>
+                    <tr>
+                        <th>Nome del professore</th>
+                        <th>Nome esame</th>
+                        <th>Data</th>
+                        <th>Nome dello studente</th>
+                    </tr>
                 </thead>
-                 <tbody>
-                        <%
+                <tbody>
+                    <%
                         ReadReservation reservations = new ReadReservation();
-                            List<Prenotazioni> reservation = reservations.ReservList();
-                            Prenotazioni[] arrayReservation = reservation.toArray(new Prenotazioni[reservation.size()]);
+                        List<Prenotazioni> reservation = reservations.ReservList();
+                        Prenotazioni[] arrayReservation = reservation.toArray(new Prenotazioni[reservation.size()]);
 
-                            for (int i = 0; i < reservation.size(); i++) {
+                        for (int i = 0; i < reservation.size(); i++) {
 
-                                String profName = arrayReservation[i].getAppelliIdappelli().getCorsiIdcorsi().getProfessoriIdprofessori().getNome();
-                                String examName = arrayReservation[i].getAppelliIdappelli().getCorsiIdcorsi().getNome();
-                                String date = arrayReservation[i].getAppelliIdappelli().getData();
-                                String studName = arrayReservation[i].getStudentiIdstudenti().getNome();
+                            String profName = arrayReservation[i].getAppelliIdappelli().getCorsiIdcorsi().getProfessoriIdprofessori().getNome();
+                            String examName = arrayReservation[i].getAppelliIdappelli().getCorsiIdcorsi().getNome();
+                            String date = arrayReservation[i].getAppelliIdappelli().getData();
+                            String studName = arrayReservation[i].getStudentiIdstudenti().getNome();
 
-                                out.println("<tr>");
-                                out.println("<td>" + profName + "</td>");
-                                out.println("<td>" + examName + "</td>");
-                                out.println("<td>" + date + "</td>");
-                                out.println("<td>" + studName + "</td>");
+                            out.println("<tr>");
+                            out.println("<td>" + profName + "</td>");
+                            out.println("<td>" + examName + "</td>");
+                            out.println("<td>" + date + "</td>");
+                            out.println("<td>" + studName + "</td>");
 
-                                out.println("</tr>");
-                            }
-    
-                        %>
-                    </tbody>
-                </table>
-       </div>
+                            out.println("</tr>");
+                        }
+
+                    %>
+                </tbody>
+            </table>
+        </div>
     </body>
 </html>

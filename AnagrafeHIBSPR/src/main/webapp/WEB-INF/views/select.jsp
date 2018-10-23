@@ -21,7 +21,7 @@
 
     </head>
     <body  style="background-color:lightgray; text-align:center">
-            <%@ include file = "header.jsp" %>
+        <%@ include file = "header.jsp" %><br><br>
         <input type="hidden" id="checkMethod" value="<%= session.getAttribute("SelectMethod")%>">
 
         <!-- 
@@ -30,7 +30,8 @@
         -->
 
         <div id="student" style="display: none">
-            <br><h1> Ecco la lista degli appelli disponibili</h1>
+                    <div style=" margin: auto; background-color: whitesmoke; border-radius:16px; width: 400px; height: 150px">
+            <br><h1> Ecco la lista degli appelli disponibili</h1></div>
             <div class="container">
                 <form action="setReservation" method="post"><br><br><br>
                     <div class="form-group">
@@ -70,13 +71,14 @@
 
         -->
         <div id="corsi" style="display: none">
-            <br><h1 style="text-align:center"> Ecco la lista dei corsi da te selezionabili</h1>
+                    <div style=" margin: auto; background-color: whitesmoke; border-radius:16px; width: 400px; height: 150px">
+
+            <br><h1 style="text-align:center"> Ecco la lista dei corsi da te selezionabili</h1></div>
             <div class="container">
                 <form action="ExamInserted" method="post"> <br><br><br>
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Inserisci la data  </label>
-                        <input type="date" id="DataEsame" name="DataEsame"/><br><br>
-                        
+                        <input type="date" id="DataEsame" name="DataEsame"/><br><br>                        
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
@@ -113,7 +115,8 @@ AREA SCEGLI APPELLO PER PROFESSORI
 
         -->
         <div id="appelli" style="display: none">
-            <br><h1> Ecco la lista degli appelli da te inseriti</h1>
+                    <div style=" margin: auto; background-color: whitesmoke; border-radius:16px; width: 400px; height: 150px">
+            <br><h1> Ecco la lista degli appelli da te inseriti</h1></div>
             <div class="container">
                 <form action="ExamDeleted" method="post"> <br><br><br>
                   <div class="form-group">
@@ -154,7 +157,8 @@ AREA SCEGLI PRENOTAZIONE PER PROFESSORI
         -->
 
         <div id="prenotazioni" style="display: none">
-            <br><h1> Ecco la lista delle prenotazioni dello studente</h1>
+                    <div style=" margin: auto; background-color: whitesmoke; border-radius:16px; width: 400px; height: 190px">
+            <br><h1> Ecco la lista delle prenotazioni dello studente</h1></div>
             <div class="container">
                 <form action="mettiVoto" method="post"> <br><br><br>
                           <div class="form-group">
@@ -203,6 +207,6 @@ AREA SCEGLI PRENOTAZIONE PER PROFESSORI
                 </form>
             </div>
         </div>
-</div>
+</div></div>
     </body>
 </html>
