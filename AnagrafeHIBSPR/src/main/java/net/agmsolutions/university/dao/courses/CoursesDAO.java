@@ -13,6 +13,7 @@ import org.hibernate.service.ServiceRegistry;
 
 public class CoursesDAO implements CoursesDAOInterface<Corsi, String>{
 
+    private SessionFactory sessionFactory;
     private Session currentSession;
     private Transaction currentTransaction;
     
@@ -76,10 +77,10 @@ public class CoursesDAO implements CoursesDAOInterface<Corsi, String>{
 		currentSession.close();
 	}
 	
-	private static SessionFactory getSessionFactory() {
+	private SessionFactory getSessionFactory() {
 		Configuration configuration = new Configuration().configure("hibernate.cfg.xml");
 		ServiceRegistry builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
-		SessionFactory sessionFactory = configuration.buildSessionFactory(builder);
+		sessionFactory = configuration.buildSessionFactory(builder);
 		return sessionFactory;
 	}
 

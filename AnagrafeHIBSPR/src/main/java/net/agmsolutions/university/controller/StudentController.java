@@ -40,7 +40,7 @@ public class StudentController {
     }
 
     @RequestMapping(value = {"/setReservation"}, method = RequestMethod.POST)
-    public String Insert(HttpServletRequest request,@RequestParam("Esame") Integer examInt) {
+    public String Insert(HttpServletRequest request,@RequestParam("idStudExam") Integer examInt) {
         HttpSession session = request.getSession();
 
         int Id = (int) session.getAttribute("Id");

@@ -9,7 +9,7 @@ $(document).ready(function () {
     else if
         (check === "ProfAppelli")
         $("#appelli").show();
-    else
+    else if
         (check === "ProfPrenot")
         $("#prenotazioni").show();
 });

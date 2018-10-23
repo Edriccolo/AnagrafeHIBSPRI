@@ -29,31 +29,44 @@
         -->
 
         <div id="student" style="display: none">
-            <br><h1> Ecco la lista degli appelli disponibili</h1>"
+            <br><h1> Ecco la lista degli appelli disponibili</h1>
             <div class="container">
                 <form action="setReservation" method="post"><br><br><br>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                            <label class="input-group-text" for="inputGroupSelect01">Esame</label>
+                           
                         </div>
-                        <select class="custom-select" id="Esame" name="Esame">
-                            <option selected>Scegli...</option>
-                            <% ReadAvailableExams choices = new ReadAvailableExams();
-                                List<Appelli> reservations = choices.ExamList();
-                                Appelli[] arrayReservations = reservations.toArray(new Appelli[reservations.size()]);
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Clicca per selezionare</th>
+                                    <th>Nome del professore</th>
+                                    <th>Nome esame</th>
+                                    <th>Data</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% ReadAvailableExams choices = new ReadAvailableExams();
+                                    List<Appelli> reservations = choices.ExamList();
+                                    Appelli[] arrayReservations = reservations.toArray(new Appelli[reservations.size()]);
 
-                                for (int i = 0; i < reservations.size(); i++) {
+                                    for (int i = 0; i < reservations.size(); i++) {
+                                        out.println("<tr>");
+                                        out.println("<td> <input type='radio' name='idStudExam' value=" + arrayReservations[i].getIdappelli() + "> </td>");
+                                        out.println("<td>" + arrayReservations[i].getCorsiIdcorsi().getProfessoriIdprofessori().getNome() + "</td>");
+                                        out.println("<td>" + arrayReservations[i].getCorsiIdcorsi().getNome() + "</td>");
+                                        out.println("<td>" + arrayReservations[i].getData() + "</td>");
+                                        out.println("</tr>");
+                                    }%>
+                            </tbody>
+                        </table>
 
-                                    out.println("<option value=" + arrayReservations[i].getIdappelli() + ">" + arrayReservations[i].getCorsiIdcorsi().getNome() + "   Professore: " + arrayReservations[i].getCorsiIdcorsi().getProfessoriIdprofessori().getNome() + "    Data Appello: " + arrayReservations[i].getData() + "</option>");
-                                }%>
-                        </select>
-                    </div>
 
-                    <button type="submit" class="btn btn-success btn-rounded z-depth-1">Invio</button>
+                        <button type="submit" class="btn btn-success btn-rounded z-depth-1">Invio</button>
                 </form>
             </div>
         </div>
-
+</div>
         <!-- 
             AREA SCEGLI CORSO PER PROFESSORI
 
@@ -65,101 +78,133 @@
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Inserisci la data  </label>
                         <input type="date" id="DataEsame" name="DataEsame"/><br><br>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <label for="exampleFormControlSelect1">Seleziona il nome </label>
-                                <select class="form-control" id="NomeEsame" name="NomeEsame">
-                                    <option selected>Scegli...</option>
-                                    <% int idProf = (int) session.getAttribute("Id");
+                        
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Clicca per selezionare</th>
+                                            <th>Nome corso</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% int idProf = (int) session.getAttribute("Id");
 
-                                        AddExam classes = new AddExam();
-                                        List<Corsi> corsiList = classes.CheckCourses(idProf);
-                                        Corsi[] arrayCorsi = corsiList.toArray(new Corsi[corsiList.size()]);
+                                            AddExam classes = new AddExam();
+                                            List<Corsi> corsiList = classes.CheckCourses(idProf);
+                                            Corsi[] arrayCorsi = corsiList.toArray(new Corsi[corsiList.size()]);
 
-                                        for (int i = 0; i < corsiList.size(); i++) {
-                                            out.println("<option value=" + arrayCorsi[i].getIdcorsi() + ">" + arrayCorsi[i].getNome() + "</option>");
-                                        }
-                                    %>
+                                            for (int i = 0; i < corsiList.size(); i++) {
+                                                out.println("<tr>");
+                                                out.println("<td> <input type='radio' name='idCorsi' value=" + arrayCorsi[i].getIdcorsi() + "> </td>");
+                                                out.println("<td>" + arrayCorsi[i].getNome() + "</td>");
+                                                out.println("</tr>");
+                                            }
+                                        %>
+                                    </tbody>
+                                </table>
 
-                                </select>
-                            </div>
-                        </div>
+                            
                         <br> <div style="text-align: center"><button type="submit" class="btn btn-success btn-rounded z-depth-1">Invio</button></div>
                     </div>
                 </form>
             </div>
         </div>
 
-                    <!-- 
-            AREA SCEGLI APPELLO PER PROFESSORI
+        <!-- 
+AREA SCEGLI APPELLO PER PROFESSORI
 
-                    -->
+        -->
         <div id="appelli" style="display: none">
             <br><h1> Ecco la lista degli appelli da te inseriti</h1>
             <div class="container">
                 <form action="ExamDeleted" method="post"> <br><br><br>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <label class="input-group-text" for="inputGroupSelect01">Esame</label>
-                        </div>
-                        <select class="custom-select" id="Esame" name="Esame">
-                            <option selected>Scegli...</option>
-                            <%  int prof = (int) session.getAttribute("Id");
+                  <div class="form-group">
+                        
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Clicca per selezionare</th>
+                                    <th>Nome esame</th>
+                                    <th>Data</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <%  int prof = (int) session.getAttribute("Id");
 
-                                DeleteExam exam = new DeleteExam();
-                                List<Appelli> exams = exam.ExamChoice(prof);
-                                Appelli[] arrayExams = exams.toArray(new Appelli[exams.size()]);
+                                    DeleteExam exam = new DeleteExam();
+                                    List<Appelli> exams = exam.ExamChoice(prof);
+                                    Appelli[] arrayExams = exams.toArray(new Appelli[exams.size()]);
 
-                                for (int i = 0; i < exams.size(); i++) {
+                                    for (int i = 0; i < exams.size(); i++) {
+                                        out.println("<tr>");
+                                        out.println("<td> <input type='radio' name='idAppelli' value=" + arrayExams[i].getIdappelli() + "> </td>");
+                                        out.println("<td>" + arrayExams[i].getCorsiIdcorsi().getNome() + "</td>");
+                                        out.println("<td>" + arrayExams[i].getData() + "</td>");
+                                        out.println("</tr>");
+                                    }%>
+                            </tbody>
+                        </table>
 
-                                    out.println("<option value=" + arrayExams[i].getIdappelli() + ">" + "Nome: " + arrayExams[i].getCorsiIdcorsi().getNome() + "    Data Appello: " + arrayExams[i].getData() + "</option>");
-                                }%>
-                        </select>
-                    </div>
-
-                    <br><button type="submit" class="btn btn-success btn-rounded z-depth-1">Invio</button>
+                            <div style="text-align: center"><br><button type="submit" class="btn btn-success btn-rounded z-depth-1">Invio</button></div>
                 </form>
             </div>
         </div>
+</div>
+        <!-- 
+AREA SCEGLI PRENOTAZIONE PER PROFESSORI
 
-                        <!-- 
-                AREA SCEGLI PRENOTAZIONE PER PROFESSORI
-
-                        -->
+        -->
 
         <div id="prenotazioni" style="display: none">
             <br><h1> Ecco la lista delle prenotazioni dello studente</h1>
             <div class="container">
                 <form action="mettiVoto" method="post"> <br><br><br>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <label class="input-group-text" for="inputGroupSelect01">Prenotazioni</label>
-                        </div>
-                        <select class="custom-select" id="Prenotazione" name="Prenotazione">
-                            <% 
-                                String NomeStud = request.getParameter("NomeStud");
-                                ApproveReservation approve = new ApproveReservation();
-                                List<Prenotazioni> reservation = approve.GetReservByStud(NomeStud);
+                          <div class="form-group">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Clicca per selezionare</th>
+                                    <th>Nome del professore</th>
+                                    <th>Nome esame</th>
+                                    <th>Data</th>
+                                    <th>Nome dello studente</th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
-                                Prenotazioni[] arrayReservation = reservation.toArray(new Prenotazioni[reservation.size()]);
+                                <%
+                                    String NomeStud = request.getParameter("NomeStud");
+                                    ApproveReservation approve = new ApproveReservation();
+                                    List<Prenotazioni> reservation = approve.GetReservByStud(NomeStud);
 
-                                for (int i = 0; i < reservation.size(); i++) {
-                                    Integer idReserv = arrayReservation[i].getIdprenotazioni();
-                                    String profName = arrayReservation[i].getAppelliIdappelli().getCorsiIdcorsi().getProfessoriIdprofessori().getNome();
-                                    String examName = arrayReservation[i].getAppelliIdappelli().getCorsiIdcorsi().getNome();
-                                    String studName = arrayReservation[i].getStudentiIdstudenti().getNome();
+                                    Prenotazioni[] arrayReservation = reservation.toArray(new Prenotazioni[reservation.size()]);
 
-                                    out.println("<option value=" + idReserv + ">" + "  Studente:" + studName + "    Professore:" + profName + "    Appello:" + examName + "</option>");
-                                }
-                            %>
-                        </select>
-                    </div>
+                                    for (int i = 0; i < reservation.size(); i++) {
+                                        Integer idReserv = arrayReservation[i].getIdprenotazioni();
+                                        String profName = arrayReservation[i].getAppelliIdappelli().getCorsiIdcorsi().getProfessoriIdprofessori().getNome();
+                                        String examName = arrayReservation[i].getAppelliIdappelli().getCorsiIdcorsi().getNome();
+                                        String studName = arrayReservation[i].getStudentiIdstudenti().getNome();
+                                        String date = arrayReservation[i].getAppelliIdappelli().getData();
 
-                    <label>Inserisci il voto</label> <input type='text' name='Vote' />
-                    <br> <div style="text-align: center"><button type="submit" class="btn btn-success btn-rounded z-depth-1">Invio</button></div>
+                                        out.println("<tr>");
+                                        out.println("<td> <input type='radio' name='idReserv' value=" + idReserv + "> </td>");
+                                        out.println("<td>" + profName + "</td>");
+                                        out.println("<td>" + examName + "</td>");
+                                        out.println("<td>" + date + "</td>");
+                                        out.println("<td>" + studName + "</td>");
+
+                                        out.println("</tr>");
+                                    }
+                                %>
+                            </tbody>
+                        </table>
+
+
+                            <br><br><label for="exampleFormControlSelect1">Inserisci il voto</label> <input type='text' name='Vote' />
+                        <br> <div style="text-align: center"><button type="submit" class="btn btn-success btn-rounded z-depth-1">Invio</button></div>
                 </form>
             </div>
         </div>
-
+</div>
     </body>
 </html>

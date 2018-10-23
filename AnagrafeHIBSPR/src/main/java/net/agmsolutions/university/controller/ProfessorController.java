@@ -29,7 +29,7 @@ public class ProfessorController {
     }    
     
     @RequestMapping(value = {"/ExamInserted"}, method = RequestMethod.POST)
-    public String InsertExam(HttpServletRequest request,@RequestParam("NomeEsame") String Esame,@RequestParam("DataEsame") String DataEsame) {
+    public String InsertExam(HttpServletRequest request,@RequestParam("idCorsi") String Esame,@RequestParam("DataEsame") String DataEsame) {
 
         Integer IdEsame = Integer.parseInt(Esame);
 
@@ -57,7 +57,7 @@ public class ProfessorController {
         }    
         
         @RequestMapping(value = {"/ExamDeleted"}, method = RequestMethod.POST)
-    public String DeleteExam(HttpServletRequest request,@RequestParam("Esame") String Esame) {
+    public String DeleteExam(HttpServletRequest request,@RequestParam("idAppelli") String Esame) {
 
         Integer IdEsame = Integer.parseInt(Esame);
 
@@ -99,7 +99,7 @@ public class ProfessorController {
         }    
         
          @RequestMapping(value = {"/mettiVoto"}, method = RequestMethod.POST)
-    public String ProcessVote (HttpServletRequest request,@RequestParam("Prenotazione") String prenotazione,@RequestParam("Vote") String Vote) {
+    public String ProcessVote (HttpServletRequest request,@RequestParam("idReserv") String prenotazione,@RequestParam("Vote") String Vote) {
 
         int prenotazioneInt = Integer.parseInt(prenotazione);
         int voteInt = Integer.parseInt(Vote);

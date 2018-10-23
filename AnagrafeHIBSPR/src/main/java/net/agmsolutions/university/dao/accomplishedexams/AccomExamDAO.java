@@ -14,6 +14,7 @@ public class AccomExamDAO implements AccomExamDAOInterface<Esamiconseguiti, Stri
 
     private Session currentSession;
     private Transaction currentTransaction;
+    private SessionFactory sessionFactory;
     
     @Override
     public void persist(Esamiconseguiti entity) {
@@ -71,10 +72,10 @@ public class AccomExamDAO implements AccomExamDAOInterface<Esamiconseguiti, Stri
 		currentSession.close();
 	}
 	
-	private static SessionFactory getSessionFactory() {
+	private SessionFactory getSessionFactory() {
 		Configuration configuration = new Configuration().configure("hibernate.cfg.xml");
 		ServiceRegistry builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
-		SessionFactory sessionFactory = configuration.buildSessionFactory(builder);
+		sessionFactory = configuration.buildSessionFactory(builder);
 		return sessionFactory;
 	}
 
