@@ -61,11 +61,13 @@ public class ReservationsDAO implements ReservationsDAOInterface<Prenotazioni, S
 	}
 	
 	public void closeCurrentSession() {
+                sessionFactory.close();
 		currentSession.close();
 	}
 	
 	public void closeCurrentSessionwithTransaction() {
 		currentTransaction.commit();
+                sessionFactory.close();
 		currentSession.close();
 	}
 	

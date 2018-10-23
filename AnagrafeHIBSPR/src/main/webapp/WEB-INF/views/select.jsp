@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" >
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script type="text/javascript" src="js/SelectChecks.js"></script>
 
@@ -159,8 +159,9 @@ AREA SCEGLI PRENOTAZIONE PER PROFESSORI
         <div id="prenotazioni" style="display: none">
                     <div style=" margin: auto; background-color: whitesmoke; border-radius:16px; width: 400px; height: 190px">
             <br><h1> Ecco la lista delle prenotazioni dello studente</h1></div>
-            <div class="container">
+            
                 <form action="mettiVoto" method="post"> <br><br><br>
+                    <div class="container">
                           <div class="form-group">
                         <table class="table table-striped">
                             <thead>
@@ -200,13 +201,13 @@ AREA SCEGLI PRENOTAZIONE PER PROFESSORI
                                 %>
                             </tbody>
                         </table>
+</div>
 
-
-                            <br><br><label for="exampleFormControlSelect1">Inserisci il voto</label> <input type='text' name='Vote' />
-                        <br> <div style="text-align: center"><button type="submit" class="btn btn-success btn-rounded z-depth-1">Invio</button></div>
+                            <br><br> <input type='text' class="form-control" name='Vote' placeholder="Inserisci il voto..."></div>
+                        <button type="submit" class="btn btn-success btn-rounded z-depth-1">Invio</button></div>
                 </form>
-            </div>
-        </div>
-</div></div>
+           
+</div>
+</div>
     </body>
 </html>

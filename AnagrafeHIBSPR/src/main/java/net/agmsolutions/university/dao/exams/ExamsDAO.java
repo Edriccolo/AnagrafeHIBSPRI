@@ -65,11 +65,13 @@ public class ExamsDAO implements ExamsDAOInterface<Appelli, String>{
 	}
 	
 	public void closeCurrentSession() {
+                sessionFactory.close();
 		currentSession.close();
 	}
 	
 	public void closeCurrentSessionwithTransaction() {
 		currentTransaction.commit();
+                sessionFactory.close();
 		currentSession.close();
 	}
 	
