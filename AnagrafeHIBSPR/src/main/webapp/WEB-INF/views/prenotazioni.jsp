@@ -21,6 +21,7 @@
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>
    <body style="background-color:lightgray; text-align:center">
+           <%@ include file = "header.jsp" %>
        <div class="container">
                 <h1>Ecco la lista delle prenotazioni attualmente online.</h1><br><br>
                 <table class="table table-striped">

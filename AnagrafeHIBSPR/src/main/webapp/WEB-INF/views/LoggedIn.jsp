@@ -13,11 +13,12 @@
         <title>Login</title>
     </head>
     <body>
+            <%@ include file = "header.jsp" %>
         <input type="hidden" id="checkLogin" value="<%= session.getAttribute("Id")%>">
          <input type="hidden" id="checkRole" value="<%= session.getAttribute("Role")%>">
         <div id="logged" style="display:none">
 
-                    <h1>Bentornato <%=session.getAttribute("Name")%> </h1>
+            <br><h1>Ciao <%=session.getAttribute("Name")%> </h1>
 
                     <h2>Cosa vuoi fare?</h2><br><br>
                     

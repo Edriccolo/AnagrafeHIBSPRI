@@ -8,6 +8,7 @@
         <script type="text/javascript" src="js/successChoice.js"></script>
     </head>
     <body>
+            <%@ include file = "header.jsp" %>
         <div><br><h1>Operazione conclusa con successo</h1></div>
         <br> <h2>Scegli se tornare alla schermata principale o effettuare il logout.</h2>
         <button type="button" class="btn btn-secondary" id="Return">Click</button> Torna indietro <br><br>

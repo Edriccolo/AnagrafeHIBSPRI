@@ -14,6 +14,7 @@
         <title>Login Page</title>
     </head>
     <body>
+        <%@ include file = "WEB-INF/views/header.jsp" %>
         <!-- Modal -->
         <div class="modal fade" id="darkModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog form-dark" role="document">

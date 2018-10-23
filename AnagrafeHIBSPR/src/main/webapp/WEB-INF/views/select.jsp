@@ -21,6 +21,7 @@
 
     </head>
     <body  style="background-color:lightgray; text-align:center">
+            <%@ include file = "header.jsp" %>
         <input type="hidden" id="checkMethod" value="<%= session.getAttribute("SelectMethod")%>">
 
         <!-- 
@@ -32,10 +33,7 @@
             <br><h1> Ecco la lista degli appelli disponibili</h1>
             <div class="container">
                 <form action="setReservation" method="post"><br><br><br>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                           
-                        </div>
+                    <div class="form-group">
                         <table class="table table-striped">
                             <thead>
                                 <tr>
