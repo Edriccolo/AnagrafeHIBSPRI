@@ -62,14 +62,16 @@ public class StudentsDAO implements StudentsDAOinterface<Studenti, String>{
 	}
 	
 	public void closeCurrentSession() {
-                sessionFactory.close();
-		currentSession.close();
+               currentSession.close(); 
+               sessionFactory.close();
+               
 	}
 	
 	public void closeCurrentSessionwithTransaction() {
 		currentTransaction.commit();
+                currentSession.close();
                 sessionFactory.close();
-		currentSession.close();
+		
 	}
 	
 	private SessionFactory getSessionFactory() {
