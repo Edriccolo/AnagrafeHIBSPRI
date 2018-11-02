@@ -8,7 +8,7 @@
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script type="text/javascript" src="js/LoginChecks.js"></script>
         <title>Login</title>
     </head>
@@ -28,14 +28,14 @@
                     <div id="choiceProf">
                         <div class="col-md-12" style="text-align: left">
                             <form action="scegliCorso" method="post">
-                                <button type="submit" class="btn btn-secondary" id="AddExamButton">Click</button> Aggiungere un appello <br><br></form>
+                                <div style=" background-color: whitesmoke; border-radius:16px; width: 300px; height: 280px"><br><button type="submit" class="btn btn-secondary" id="AddExamButton">Click</button> Aggiungere un appello <br><br></form>
                             <form action="eliminaScelta" method="post">
                                 <button type="submit" class="btn btn-secondary">Click</button> Eliminare un appello <br><br></form>
                             <form action="prenotazioni" method="post">
-                                <button type="submit" class="btn btn-secondary">Click</button> Visualizzare la lista delle prenotazioni <br><br></form>
+                                <button type="submit" class="btn btn-secondary">Click</button> Lista delle prenotazioni <br><br></form>
 
                             <button type="button" class="btn btn-secondary" id="ApproveExamButton">Click</button> Segnare un esame passato
-                        </div> </div>
+                        </div> </div></div>
 
                     <div id="ApproveExam" style="display:none">
                         <form action="cercaStudente" method="post">
@@ -51,9 +51,9 @@
             <div id="StudLogged" style="display:none">
                 <div style="text-align:left">
                     <form action="appelli" method="post">
-                        <button type="submit" class="btn btn-secondary">Click</button> Leggere gli appelli disponibili <br><br></form>
+                        <div style=" background-color: whitesmoke; border-radius:16px; width: 300px; height: 150px"><br>  <button type="submit" class="btn btn-secondary">Click</button> Leggere gli appelli disponibili <br><br></form>
                     <form action="scegliAppello" method="post">
-                        <button type="submit" class="btn btn-secondary">Click</button> Fai una prenotazione <br><br></form>
+                        <button type="submit" class="btn btn-secondary">Click</button> Fai una prenotazione </div><br><br></form>
                 </div>    
             </div>
         </div>
